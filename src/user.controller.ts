@@ -1,8 +1,11 @@
 import { Controller, Get, Param, Post, Body} from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './create-user.dto';
+import { UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
+@UseGuards(AuthGuard('bearer'))
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
