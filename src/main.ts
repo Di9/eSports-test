@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle('eSports test example')
     .setDescription('User data API')
     .setVersion('0.0.1')
+    .addBearerAuth('Authorization', 'header', 'apiKey')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
