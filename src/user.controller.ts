@@ -11,9 +11,10 @@ export class UserController {
     return this.userService.findAllUsers();
   }
 
-  @Get(':id')
-  userData(@Param('id') id): object {
-      return this.userService.findUserById(id);
+  @Get(':login')
+  async userData(@Param('login') login): Promise<object> {
+
+    return await this.userService.findUserByLogin(login);
   }
 
   @Post()

@@ -8,18 +8,12 @@ import { CreateUserDto } from './create-user.dto';
 export class UserService {
   constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
 
-  public users = [
-      {userLogin: 'Vasya'},
-      {userLogin: 'Petya'},
-  ];
-
   async findAllUsers(): Promise<User[]> {
-    console.log('request all users');
     return await this.userModel.find().exec();
   }
 
-  findUserById(id): object {
-    return this.users[id];
+  async findUserByLogin(login): Promise<User[]> {
+    return await this.userModel.findOne({ userLogin: login}).exec();
   }
 
   async createUser(createUserDto: CreateUserDto): Promise<User[]> {

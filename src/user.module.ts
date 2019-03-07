@@ -6,8 +6,8 @@ import { UserService } from './user.service';
 
 @Module({
   imports: [
-      MongooseModule.forRoot(`mongodb://esports:hI832fjWDr@ds261155.mlab.com:61155/esports`),
-      MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    MongooseModule.forRoot(`mongodb://esports:hI832fjWDr@ds261155.mlab.com:61155/esports`),
+    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
   ],
   controllers: [UserController],
   providers: [UserService],
